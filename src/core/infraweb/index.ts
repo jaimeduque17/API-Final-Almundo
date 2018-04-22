@@ -1,6 +1,9 @@
 import express, { Request, Response } from 'express';
 import path from 'path';
 import config from 'config';
+import mongoose from 'mongoose';
+
+const conn_string = config.get('server.data_base');
 
 interface IData {
   [ key: string ]: any;
@@ -27,11 +30,6 @@ export class InfraWeb {
     return this;
   }
 
-  public setViewsEngine(viewEngine: string, dirname: string) {
-    this.set('view engine', viewEngine);
-    this.set('views', dirname);
-  }
-
   public set(setting: string, val: any) {
     this.middleware.set(setting, val);
     return this;
@@ -54,5 +52,18 @@ export class InfraWeb {
 
   public startServer() {
     this.listen((this.conf as any ).port, () => { console.log('Server running'); });
+  }
+
+  public connectDB() {
+    try {
+      mongoose.connect(`${conn_string}`);
+  } catch (err) {
+    throw err;
+  }
+  mongoose.connection
+      .once('open', () => console.log('MongoDB connection success'))
+      .on('error', e => {
+          throw e;
+      });
   }
 }

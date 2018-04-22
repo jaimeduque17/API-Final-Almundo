@@ -6,8 +6,8 @@ import express from 'express';
 export class Server extends InfraWeb {
   constructor() {
     super();
+    this.connectDB();
     this.mountMiddleware(middlewareServer);
-    this.setViewsEngine('pug', `${__dirname}/app/views`);
     this.mountRoutes(routesServer);
   }
 
