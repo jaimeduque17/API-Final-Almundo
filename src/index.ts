@@ -1,6 +1,7 @@
 process.env.NODE_CONFIG_DIR = `${__dirname}/env`;
 import { InfraWeb } from './core/infraweb';
-import { routesServer, middlewareServer } from './middlewares';
+import { middlewareServer } from './middlewares';
+import { routesServer } from './middlewares/routes';
 import express from 'express';
 
 export class Server extends InfraWeb {
