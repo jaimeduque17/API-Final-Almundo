@@ -1,0 +1,8 @@
+{
+  "server": {
+      "env": "development",
+      "port": 5058,
+      "base_url":"/api",
+      "data_base":"mongodb://jaime:12345@ds153869.mlab.com:53869/flights"
+  }
+}

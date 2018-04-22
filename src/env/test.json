@@ -1,0 +1,7 @@
+{
+  "server": {
+      "env": "test",
+      "port": 3434,
+      "baseUrl": "/"
+  }
+}
