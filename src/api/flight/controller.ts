@@ -19,5 +19,13 @@ export const flightController = {
       console.log(error);
       return error
     }
+  },
+  getFlightDeparture: async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const query = await services.getFlightDeparture(req.query);
+      return res.send({data: query})
+    } catch (error) {
+      return error;
+    }
   }
 };
