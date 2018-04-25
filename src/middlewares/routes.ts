@@ -19,5 +19,10 @@ export const routesServer: { [index: string]: any } = {
     verb: 'get',
     mountPoint: '/flights/departure',
     handle: flightController.getFlightDeparture
+  },
+  getFlightReturn: {
+    verb: 'get',
+    mountPoint: '/flights/return',
+    handle: flightController.getFlightReturn
   }
 };

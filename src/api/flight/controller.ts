@@ -27,5 +27,13 @@ export const flightController = {
     } catch (error) {
       return error;
     }
+  },
+  getFlightReturn: async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const query = await services.getFlightReturn(req.query);
+      return res.send({data: query})
+    } catch (error) {
+      return error;
+    }
   }
 };
