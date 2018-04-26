@@ -23,7 +23,7 @@ export const flightController = {
   getFlightDeparture: async (req: Request, res: Response, next: NextFunction) => {
     try {
       const query = await services.getFlightDeparture(req.query);
-      return res.send({data: query})
+      return res.send({ data: query })
     } catch (error) {
       return error;
     }
@@ -31,7 +31,7 @@ export const flightController = {
   getFlightReturn: async (req: Request, res: Response, next: NextFunction) => {
     try {
       const query = await services.getFlightReturn(req.query);
-      return res.send({data: query})
+      return res.send({ data: query })
     } catch (error) {
       return error;
     }
